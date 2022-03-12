@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { listData } from '../list';
 
 @Component({
   selector: 'app-list-details',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-details.component.css']
 })
 export class ListDetailsComponent implements OnInit {
+  item;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(
+      params => {this.item = listData[params.get("index")]}
+    );
   }
 
 }
