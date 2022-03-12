@@ -1,0 +1,33 @@
+<div class="container-fluid mt-3">
+  <h1>Disciplinas</h1>
+
+  <div class="card-body">
+    <table class="table table-dark table-sm align-middle">
+      <thead>
+        <tr>
+          <th>CÓDIGO</th>
+          <th>DISCIPLINA</th>
+          <th>DIA DA SEMANA</th>
+          <th>HORÁRIO</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of list; index as i">
+          <td>
+            <a [routerLink]="['/list', i]">{{ item.code }}</a>
+          </td>
+          <td>
+            <a [routerLink]="['/list', i]">{{ item.text }}</a>
+          </td>
+          <td>{{ item.day }}</td>
+          <td>{{ item.time }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="form-group text-center"></div>
+
+  <div class="d-grid gap-2 col-2 mx-auto"></div>
+</div>
